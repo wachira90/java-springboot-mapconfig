@@ -22,6 +22,17 @@ spring.config.db.mysql=monavista-windows10
 http://localhost:8090/getdbconf
 ```
 
+## Dockerfile
+
+```Dockerfile
+FROM openjdk:8-jre
+WORKDIR /application
+EXPOSE 8090
+ADD app.jar /application/app.jar
+ADD application.properties /application/application.properties
+CMD java -Dspring.config.location=/application/application.properties -jar /application/app.jar
+```
+
 ## yaml kubernet
 
 ```yml
